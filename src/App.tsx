@@ -1,7 +1,7 @@
-import React from "react";
-import FileViewer from "./FileViewer";
+import FileViewer from "@comp/FileViewer";
+import { FC } from "react";
 
-const App: React.FC = () => {
+const App: FC = () => {
   return (
     <div>
       <FileViewer />
