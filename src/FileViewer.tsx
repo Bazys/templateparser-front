@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { fromFetch } from "rxjs/fetch";
 import FileList from "./FileList";
+import "./FileViewer.scss";
 
 const FileViewer: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<string>("");
@@ -29,7 +31,9 @@ const FileViewer: React.FC = () => {
   return (
     <div>
       <FileList onFileSelect={handleFileSelect} />
-      <pre>{JSON.stringify(fileContent, null, "\t")}</pre>
+      <SyntaxHighlighter class="json" language="json">
+        {JSON.stringify(fileContent, null, 2)}
+      </SyntaxHighlighter>
     </div>
   );
 };
