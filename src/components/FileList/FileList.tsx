@@ -25,8 +25,13 @@ const FileList: React.FC<Props> = ({ onFileSelect }) => {
 
   return (
     <div>
-      <label htmlFor="file-select">Select a file:</label>
-      <select id="file-select" onChange={handleFileSelect} value={selectedFile}>
+      <select
+        style={{ width: "100%" }}
+        title="Select a file"
+        id="file-select"
+        onChange={handleFileSelect}
+        value={selectedFile}
+      >
         {files.map((file) => (
           <option key={file} value={file}>
             {file}

@@ -1,14 +1,21 @@
-import { FC } from "react";
+import { EditorState } from "draft-js";
+import { Component } from "react";
+import "./TemplateEditor.scss";
 
-interface TemplateEditorProps {}
+class TemplateEditor extends Component {
+  state = { editorState: EditorState.createEmpty() };
+  onChange = (editorState: EditorState) => this.setState({ editorState });
 
-const TemplateEditor: FC<TemplateEditorProps> = ({}) => {
-  // const [, set] = useState<string>();
-  // useEffect(() => {
-  //   set();
-  // }, []);
-
-  return <></>;
-};
+  render() {
+    return (
+      <div className="TemplateEditor">
+        <textarea className="TemplateEditor-textarea" title="code"></textarea>
+        <button title="Parse" type="button">
+          Parse
+        </button>
+      </div>
+    );
+  }
+}
 
 export default TemplateEditor;
